@@ -1,33 +1,36 @@
 import random
+import os
+import time
 
 print("WELCOME TO THE CHARACTER BUILDER PROGRAM")
 print()
 
 
-def generate_caharacter():
-    name = input("Name your Legend: ")
-    char_type = input("Character Type (Human, Elf, Wizard, Orc): ")
-    return name
+def roll_dice(sides):
+    return random.randint(1, sides)
 
 
-def health_stamp(sided, roll):
-    return (((6-sided-roll) * (12-sided-roll)) / 2) + 10
+def health_stamp():
+    return ((roll_dice(6) * roll_dice(12)) / 2) + 10
 
 
-def stength_stat(sided, roll):
-    return (((6-sided-roll) * (8-sided-roll)) / 2) + 12
+def stength_stat():
+    return ((roll_dice(6) * roll_dice(8)) / 2) + 12
 
 
 while True:
-    sided = 6
-    roll = random.randint(1, 6)
+    name = input("Name your Legend: ")
+    char_type = input("Character Type (Human, Elf, Wizard, Orc): ")
 
     print()
-    print(generate_caharacter())
-    print("HEALTH:", health_stamp(sided, roll))
-    print("STRENGTH:", stength_stat(sided, roll))
+    print(name.upper())
+    print("HEALTH:", health_stamp())
+    print("STRENGTH:", stength_stat())
     print()
     print("May your name go down in Legends...")
     print()
     if input("Again(Yes or No)?: ").lower().strip() != "yes":
         break
+
+    time.sleep(1)
+    os.system("cls")
