@@ -54,7 +54,7 @@ for i in range(3):
     elif user1_input == 's' and user2_input == 's':
         continue
 
-print("*******************GAME RESULTS****************")
+print("*******************GAME RESULTS*******************")
 time.sleep(2)
 print("Congratulations to all players for playing.")
 
